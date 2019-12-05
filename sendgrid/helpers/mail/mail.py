@@ -144,10 +144,10 @@ class Mail(object):
         # Send multiple emails to multiple recipients
         if is_multiple is True:
             if isinstance(emails, list):
-                for email in emails:
+                for index, email in enumerate(emails):
                     personalization = Personalization()
                     personalization.add_email(email)
-                    self.add_personalization(personalization)
+                    self.add_personalization(personalization, p=index)
             else:
                 personalization = Personalization()
                 personalization.add_email(emails)
